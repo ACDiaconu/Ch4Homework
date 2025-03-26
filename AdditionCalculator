@@ -1,0 +1,41 @@
+import java.util.Scanner;
+import java.util.InputMismatchException;
+public class AdditionCalculator {
+	public static void main(String [] args) {
+		System.out.println("Welcome to my Addition Calculator!");
+		Scanner input = new Scanner(System.in);
+		boolean flag = true;
+		boolean flag2 = true;
+		int a = 0;
+		int b = 0;
+		while(flag2) {
+			flag = true;
+			while(flag) {
+				try {
+					System.out.print("Input int a: ");
+					a = input.nextInt();
+					System.out.print("Input int b: ");
+					b = input.nextInt();
+					flag = false;
+				}catch(InputMismatchException ime) {
+					input.nextLine();
+					System.out.println("Invalid input. "+ ime);
+				}
+			}
+			System.out.println(a+"+"+b+"="+(a+b));
+			System.out.println("Press 1 to continue and 0 to stop");
+			try {
+				int x = input.nextInt();
+				if(x==1) {
+					continue;
+				}else {
+					System.out.println("Exit");
+					flag2 = false;
+				}
+			}catch(InputMismatchException ime) {
+				input.nextLine();
+				System.out.println("Invalid input. "+ ime);
+			}
+		}
+	}
+}
