@@ -1,0 +1,25 @@
+import java.util.*;
+public class ChosenArrayElement {
+	public static void main(String [] args) {
+		Scanner input = new Scanner(System.in);
+		double [] arr = new double[50];
+		int x = 0;
+		for(int i = 0; i < arr.length; i++) {
+			arr[i]=Math.random()*11;
+		}
+		boolean flag = true;
+		while(true) {
+			try {
+				System.out.print("Input the index: ");
+				x = input.nextInt();
+				input.nextLine();
+				System.out.println(arr[x]);
+			}catch(ArrayIndexOutOfBoundsException aib) {
+				System.out.println(aib);
+			}catch(InputMismatchException ime) {
+				input.nextLine();
+				System.out.println(ime);
+			}
+		}
+	}
+}
